@@ -30,7 +30,7 @@ class CustomRadioListtile extends StatelessWidget {
       child: InkWell(
         onTap: onTap == null ? null : () => onTap!(),
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -69,7 +69,7 @@ class CustomRadioListtile extends StatelessWidget {
                     border: Border.all(color: Co.orange, width: 1),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.all(4),
+                    padding: const EdgeInsets.all(4),
                     child: AnimatedScale(
                       scale: isSelected ? 1 : 0,
                       duration: Durations.short4,

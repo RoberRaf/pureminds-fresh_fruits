@@ -5,10 +5,11 @@ import 'package:pure_minds/config/theming/app_colors.dart';
 import 'package:pure_minds/config/theming/text_styles.dart';
 import 'package:pure_minds/core/extensions/context.dart';
 import 'package:pure_minds/core/resources/dummy_data.dart';
+import 'package:pure_minds/features/auth/views/login_screen.dart';
+import 'package:pure_minds/features/auth/views/register_screen.dart';
 import 'package:pure_minds/features/general_widgets/main_button.dart';
 import 'package:pure_minds/features/general_widgets/main_safe_area.dart';
 import 'package:pure_minds/features/general_widgets/spacing.dart';
-import 'package:pure_minds/features/main_layout/main_layout.dart';
 import 'package:pure_minds/features/onboarding/views/widgets/onboarding_item.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -66,7 +67,7 @@ class _OnboarddingScreenState extends State<OnboarddingScreen> {
                             item: DummyData.onBoardings[value],
                           ),
                         ),
-                        VerticalSpacing(24),
+                        const VerticalSpacing(24),
                         SmoothPageIndicator(
                           controller: controller,
                           count: DummyData.onBoardings.length,
@@ -85,7 +86,7 @@ class _OnboarddingScreenState extends State<OnboarddingScreen> {
                             ),
                           ),
                         ),
-                        VerticalSpacing(40),
+                        const VerticalSpacing(40),
                         ValueListenableBuilder(
                             valueListenable: currentIndex,
                             builder: (context, value, child) {
@@ -93,17 +94,13 @@ class _OnboarddingScreenState extends State<OnboarddingScreen> {
                                   duration: Durations.medium3,
                                   transitionBuilder: (child, animation) =>
                                       FadeTransition(opacity: animation, child: child),
-                                  child: value < 2
+                                  child: value < DummyData.onBoardings.length - 1
                                       ? MainButton(
                                           text: L10n.tr().next,
                                           ontap: () {
-                                            if (value < DummyData.onBoardings.length - 1) {
-                                              controller.nextPage(
-                                                  duration: Durations.medium4,
-                                                  curve: Curves.easeInOut);
-                                            } else {
-                                              context.myPushReplacment(const MainLayout());
-                                            }
+                                            controller.nextPage(
+                                                duration: Durations.medium4,
+                                                curve: Curves.easeInOut);
                                           },
                                         )
                                       : child!);
@@ -115,7 +112,7 @@ class _OnboarddingScreenState extends State<OnboarddingScreen> {
                                   text: L10n.tr().createAnAccount.toUpperCase(),
                                   bgColor: Co.black,
                                   style: TStyle.whiteBold(15),
-                                  ontap: () {},
+                                  ontap: () => context.myPush(const RegisterScreen()),
                                 ),
                                 MainButton(
                                   text: L10n.tr().login.toUpperCase(),
@@ -123,11 +120,11 @@ class _OnboarddingScreenState extends State<OnboarddingScreen> {
                                   style: TStyle.blackBold(15),
                                   showBorder: true,
                                   borderColor: Co.black,
-                                  ontap: () {},
+                                  ontap: () => context.myPush(const LoginScreen()),
                                 )
                               ],
                             )),
-                        VerticalSpacing(10),
+                        const VerticalSpacing(10),
                       ],
                     );
                   }),

@@ -61,5 +61,9 @@
     "saveShippingAddress" : "Save Shipping Address",
     "next" : "Next",
     "cashOnDelivery" : "Cash on Delivery",
-    "creditCard" : "Credit Card"
+    "creditCard" : "Credit Card",
+    "firstName" : "First Name",
+    "lastName" : "Last Name",
+    "email" : "Email",
+    "password" : "Password"
 }

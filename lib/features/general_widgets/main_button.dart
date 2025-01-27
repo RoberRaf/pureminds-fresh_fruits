@@ -76,7 +76,7 @@ class MainButton extends StatelessWidget {
                   minWidth: padding != null ? null : width ?? double.infinity,
                   onPressed: enable ? ontap : null,
                   padding: padding ??
-                      EdgeInsets.symmetric(vertical: 18, horizontal: 20),
+                      const EdgeInsets.symmetric(vertical: 18, horizontal: 20),
                   shape: RoundedRectangleBorder(
                     side: showBorder
                         ? BorderSide(color: borderColor ?? Co.orange)

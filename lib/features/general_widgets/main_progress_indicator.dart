@@ -16,6 +16,7 @@ class MainProgressIndicator extends StatelessWidget {
             ? const CircularProgressIndicator(
                 color: Co.orange,
               )
+            // ignore: prefer_const_constructors
             : CupertinoActivityIndicator(
                 color: Co.orange,
                 radius: 24,

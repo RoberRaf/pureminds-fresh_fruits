@@ -5,7 +5,7 @@ import 'package:pure_minds/config/theming/text_styles.dart';
 import 'package:pure_minds/core/extensions/context.dart';
 import 'package:pure_minds/core/resources/assets.dart';
 import 'package:pure_minds/features/general_widgets/spacing.dart';
-import 'package:pure_minds/features/onboarding/views/onboardding_screen.dart';
+import 'package:pure_minds/features/main_layout/main_layout.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -17,8 +17,8 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 4), () {
-      if (mounted) context.myPushReplacment(OnboarddingScreen());
+    Future.delayed(const Duration(seconds: 4), () {
+      if (mounted) context.myPushReplacment(const MainLayout());
     });
     super.initState();
   }
@@ -37,13 +37,13 @@ class _SplashScreenState extends State<SplashScreen> {
             width: 130,
             fit: BoxFit.cover,
           ),
-          VerticalSpacing(38),
+          const VerticalSpacing(38),
           Text(
             'Fresh Fruits',
             style: TStyle.whiteBold(38),
           ),
-          HorizontalSpacing(double.infinity),
-          VerticalSpacing(127),
+          const HorizontalSpacing(double.infinity),
+          const VerticalSpacing(127),
         ],
       ),
     );

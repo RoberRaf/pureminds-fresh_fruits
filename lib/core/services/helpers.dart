@@ -1,11 +1,15 @@
 
 
+import 'package:flutter/foundation.dart';
+
 abstract class Helpers {
   static Future customTryCatch(Future Function() func) async {
     try {
       await func();
     } catch (e) {
-      print(e.toString());
+      if (kDebugMode) {
+        print(e.toString());
+      }
     }
   }
 

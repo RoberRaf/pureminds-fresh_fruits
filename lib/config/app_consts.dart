@@ -20,7 +20,7 @@ abstract class AppConsts {
       ];
 
   static final defaultPadding =
-      EdgeInsets.symmetric(horizontal: 16, vertical: 8);
-  static final defaultHomePadding = EdgeInsets.fromLTRB(16, 8, 16, 135);
-  static final defaultHorPadding = EdgeInsets.symmetric(horizontal: 16);
+      const EdgeInsets.symmetric(horizontal: 28, vertical: 28);
+  static final defaultHomePadding = const EdgeInsets.fromLTRB(28, 168, 28, 135);
+  static final defaultHorPadding = const EdgeInsets.symmetric(horizontal: 28);
 }

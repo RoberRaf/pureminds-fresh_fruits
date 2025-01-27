@@ -10,7 +10,7 @@ class Alerts {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
         showCloseIcon: true,
         dismissDirection: DismissDirection.down,
         duration: const Duration(seconds: 2),

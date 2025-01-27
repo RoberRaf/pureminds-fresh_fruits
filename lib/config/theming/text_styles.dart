@@ -34,6 +34,78 @@ abstract class TStyle {
         fontWeight: bolder,
         color: Co.white,
       );
+  static TextStyle purpleRegular(double fontSize) => TextStyle(
+        // fontFamily: "Segoe",
+        fontSize: fontSize,
+        fontWeight: regular,
+        color: Co.purple,
+      );
+  static TextStyle purpleSemi(double fontSize) => TextStyle(
+        // fontFamily: "Segoe",
+        fontSize: fontSize,
+        fontWeight: semi,
+        color: Co.purple,
+      );
+  static TextStyle purpleBold(double fontSize) => TextStyle(
+        // fontFamily: "Segoe",
+        fontSize: fontSize,
+        fontWeight: bold,
+        color: Co.purple,
+      );
+  static TextStyle purpleBolder(double fontSize) => TextStyle(
+        // fontFamily: "Segoe",
+        fontSize: fontSize,
+        fontWeight: bolder,
+        color: Co.purple,
+      );
+  static TextStyle orangeRegular(double fontSize) => TextStyle(
+        // fontFamily: "Segoe",
+        fontSize: fontSize,
+        fontWeight: regular,
+        color: Co.orange,
+      );
+  static TextStyle orangeSemi(double fontSize) => TextStyle(
+        // fontFamily: "Segoe",
+        fontSize: fontSize,
+        fontWeight: semi,
+        color: Co.orange,
+      );
+  static TextStyle orangeBold(double fontSize) => TextStyle(
+        // fontFamily: "Segoe",
+        fontSize: fontSize,
+        fontWeight: bold,
+        color: Co.orange,
+      );
+  static TextStyle orangeBolder(double fontSize) => TextStyle(
+        // fontFamily: "Segoe",
+        fontSize: fontSize,
+        fontWeight: bolder,
+        color: Co.orange,
+      );
+  static TextStyle yellowRegular(double fontSize) => TextStyle(
+        // fontFamily: "Segoe",
+        fontSize: fontSize,
+        fontWeight: regular,
+        color: Co.yellow,
+      );
+  static TextStyle yellowSemi(double fontSize) => TextStyle(
+        // fontFamily: "Segoe",
+        fontSize: fontSize,
+        fontWeight: semi,
+        color: Co.yellow,
+      );
+  static TextStyle yellowBold(double fontSize) => TextStyle(
+        // fontFamily: "Segoe",
+        fontSize: fontSize,
+        fontWeight: bold,
+        color: Co.yellow,
+      );
+  static TextStyle yellowBolder(double fontSize) => TextStyle(
+        // fontFamily: "Segoe",
+        fontSize: fontSize,
+        fontWeight: bolder,
+        color: Co.yellow,
+      );
   static TextStyle blackRegular(double fontSize) => TextStyle(
         // fontFamily: "Segoe",
         fontSize: fontSize,

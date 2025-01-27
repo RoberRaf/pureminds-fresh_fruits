@@ -85,37 +85,26 @@ class _MainTextFieldState extends State<MainTextField> {
 
   @override
   Widget build(BuildContext context) {
-    // final iconContraints = widget.iconsConstraints ?? BoxConstraints(minHeight: 25.h, maxHeight: 40.h, maxWidth: 40.w, minWidth: 25.w);
     return widget.isLoading
-        ? SizedBox(
-            height: (widget.hieght ?? 50), child: const MainProgressIndicator())
+        ? SizedBox(height: (widget.hieght ?? 50), child: const MainProgressIndicator())
         : ValueListenableBuilder(
             valueListenable: isObscure,
             builder: (context, value, child) {
-              final focusedBorder = UnderlineInputBorder(
-                borderRadius:
-                    BorderRadius.circular((widget.borderRadius ?? 12)),
+              final focusedBorder = OutlineInputBorder(
+                borderRadius: AppConsts.defaultRadius,
                 borderSide: BorderSide(
-                    color: !widget.showBorder
-                        ? Colors.white
-                        : widget.borderColor ?? Colors.white),
+                    color: !widget.showBorder ? Co.yellow : widget.borderColor ?? Co.yellow),
               );
-              final errorBorder = UnderlineInputBorder(
-                borderRadius:
-                    BorderRadius.circular((widget.borderRadius ?? 12)),
-                borderSide: BorderSide(
-                    color:
-                        !widget.showBorder ? Colors.transparent : Colors.red),
+              final errorBorder = OutlineInputBorder(
+                borderRadius: AppConsts.defaultRadius,
+                borderSide: BorderSide(color: !widget.showBorder ? Co.yellow : Colors.red),
               );
-              final focusedErrorBorder = UnderlineInputBorder(
-                borderRadius:
-                    BorderRadius.circular((widget.borderRadius ?? 12)),
-                borderSide: BorderSide(
-                    color:
-                        !widget.showBorder ? Colors.transparent : Colors.white),
+              final focusedErrorBorder = OutlineInputBorder(
+                borderRadius: AppConsts.defaultRadius,
+                borderSide: BorderSide(color: !widget.showBorder ? Co.yellow : Co.yellow),
               );
               return ClipRRect(
-                borderRadius: BorderRadius.circular(widget.borderRadius ?? 12),
+                borderRadius: AppConsts.defaultRadius,
                 child: TextFormField(
                   onTapOutside: (event) {
                     FocusScope.of(context).unfocus();
@@ -124,43 +113,34 @@ class _MainTextFieldState extends State<MainTextField> {
                   cursorColor: Co.orange,
                   controller: widget.controller,
                   enabled: widget.enabled,
-                  style: !widget.enabled
-                      ? TStyle.greySemi(14)
-                      : widget.style ?? TStyle.blackSemi(14),
+                  style:
+                      !widget.enabled ? TStyle.greySemi(14) : widget.style ?? TStyle.blackSemi(14),
                   validator: widget.validator,
                   onChanged: widget.onChange,
                   onSaved: widget.onSubmitting,
                   obscureText: value,
-                  inputFormatters: widget.inputFormatters != null
-                      ? [widget.inputFormatters!]
-                      : null,
-                  keyboardType: widget.inputFormatters ==
-                          FilteringTextInputFormatter.digitsOnly
+                  inputFormatters:
+                      widget.inputFormatters != null ? [widget.inputFormatters!] : null,
+                  keyboardType: widget.inputFormatters == FilteringTextInputFormatter.digitsOnly
                       ? TextInputType.number
                       : null,
                   decoration: InputDecoration(
-                    errorStyle: TStyle.errorSemi(15),
+                    errorStyle: TStyle.errorSemi(14),
                     hintText: widget.hintText,
                     hintStyle: widget.style ?? TStyle.greyRegular(12),
                     labelText: widget.label,
                     labelStyle: TStyle.greySemi(15),
-                    contentPadding:
-                        EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 28, vertical: 20),
                     prefixIcon: widget.prefix == null
                         ? null
                         : widget.prefixOnTap == null
                             ? Padding(
-                                padding: EdgeInsets.all(5
-                                    // right: context.read<SettingsCubit>().isEn ? 5.r : 0,
-                                    // left: context.read<SettingsCubit>().isEn ? 0 : 5.r,
-                                    ),
+                                padding: const EdgeInsets.all(5),
                                 child: DecoratedBox(
                                   decoration: BoxDecoration(
-                                      color: Co.orange,
-                                      borderRadius: AppConsts.defaultRadius),
+                                      color: Co.orange, borderRadius: AppConsts.defaultRadius),
                                   child: Padding(
-                                      padding: EdgeInsets.all(8),
-                                      child: widget.prefix),
+                                      padding: const EdgeInsets.all(8), child: widget.prefix),
                                 ),
                               )
                             : Padding(
@@ -170,56 +150,24 @@ class _MainTextFieldState extends State<MainTextField> {
                                 child: MaterialButton(
                                     minWidth: 20,
                                     onPressed: widget.prefixOnTap ?? () {},
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 12),
+                                    padding: const EdgeInsets.symmetric(horizontal: 12),
                                     shape: RoundedRectangleBorder(
                                         borderRadius: AppConsts.defaultRadius),
                                     color: Co.orange,
                                     child: widget.prefix),
                               ),
-
-                    // suffixIconConstraints: iconContraints,
-
                     suffix: widget.suffixWidget,
                     suffixIcon: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: getSiffixIcon(value),
                     ),
-
                     filled: widget.isFilled || widget.bgColor != null,
-
                     fillColor: widget.bgColor ?? Co.white,
                     focusedBorder: focusedBorder,
                     errorBorder: errorBorder,
                     focusedErrorBorder: focusedErrorBorder,
-                    enabledBorder: InputBorder.none,
-                    disabledBorder: InputBorder.none,
-                    // enabledBorder: OutlineInputBorder(
-                    //   borderRadius: BorderRadius.circular(
-                    //       (widget.borderRadius ?? AppConsts.defaultBorderRadius)
-                    //           .h),
-                    //   borderSide: BorderSide(
-                    //       color: !widget.showBorder
-                    //           ? Colors.transparent
-                    //           : widget.borderColor ?? Co.white),
-                    // ),
-                    //   borderSide: BorderSide(
-                    //       color: !widget.showBorder
-                    //           ? Colors.transparent
-                    //           : widget.foucusedColor ??
-                    //               Co.grey.withOpacity(0.25)),
-                    // ),
-                    // disabledBorder: OutlineInputBorder(
-                    //   borderRadius: BorderRadius.circular(
-                    //       (widget.borderRadius ?? AppConsts.defaultBorderRadius)
-                    //           .h),
-                    //   borderSide: BorderSide(
-                    //       color: widget.borderColor ?? Colors.transparent),
-                    // ),
-
-                    // focusedBorder: InputBorder.none,
-                    // errorBorder: InputBorder.none,
-                    // focusedErrorBorder: InputBorder.none,
+                    enabledBorder: focusedBorder,
+                    disabledBorder: focusedBorder,
                   ),
                 ),
               );
@@ -234,7 +182,7 @@ class _MainTextFieldState extends State<MainTextField> {
         onTap: () => isObscure.value = !value,
         child: Icon(
           value ? CupertinoIcons.eye_slash_fill : CupertinoIcons.eye_fill,
-          color: Co.lightGrey,
+          color: Co.grey,
           size: 20,
         ),
       );

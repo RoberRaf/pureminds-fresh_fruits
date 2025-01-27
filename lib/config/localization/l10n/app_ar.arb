@@ -61,5 +61,9 @@
     "saveShippingAddress" : "حفظ عنوان الشحن",
     "next" : "التالي",
     "cashOnDelivery" : "الدفع عند الاستلام",
-    "creditCard" : "بطاقة الائتمان"
+    "creditCard" : "بطاقة الائتمان",
+    "firstName" : "الاسم الأول",
+    "lastName" : "الكنية",
+    "email" : "البريد الإلكتروني",
+    "password" : "كلمه السر"
 }
