@@ -9,7 +9,7 @@ class MainSafeArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
-      color: color ?? Co.white,
+      color: color ?? Co.greyishWhite,
       child: SafeArea(child: child),
     );
   }

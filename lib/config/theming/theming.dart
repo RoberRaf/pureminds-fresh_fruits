@@ -15,7 +15,7 @@ enum ThemeCo {
 class MyTheme {
   static ThemeData get mainTheme => ThemeData(
         fontFamily: 'poppins',
-        scaffoldBackgroundColor: Co.white,
+        scaffoldBackgroundColor: Co.greyishWhite,
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
           surfaceTintColor: Colors.transparent,
