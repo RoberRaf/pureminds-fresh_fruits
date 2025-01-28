@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pure_minds/config/localization/l10n/l10n.dart';
+import 'package:pure_minds/config/session_data.dart';
 import 'package:pure_minds/config/theming/theming.dart';
 import 'package:pure_minds/core/extensions/context.dart';
 import 'package:pure_minds/core/resources/assets.dart';
 import 'package:pure_minds/core/services/validators.dart';
+import 'package:pure_minds/features/auth/data/user_model.dart';
 import 'package:pure_minds/features/auth/views/widgets/register_success_dialog.dart';
 import 'package:pure_minds/features/general_widgets/main_button.dart';
 import 'package:pure_minds/features/general_widgets/main_text_field.dart';
@@ -139,9 +141,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 child: Text(
                                   L10n.tr().terms,
                                   style: TStyle.orangeRegular(14).copyWith(
-                                    // decoration: TextDecoration.underline,
-                                    // decorationColor: Colors.black38,
-                                  ),
+                                      // decoration: TextDecoration.underline,
+                                      // decorationColor: Colors.black38,
+                                      ),
                                 ),
                               ),
                               Text(
@@ -155,9 +157,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 child: Text(
                                   L10n.tr().conditions,
                                   style: TStyle.orangeRegular(14).copyWith(
-                                    // decoration: TextDecoration.underline,
-                                    // decorationColor: Colors.black38,
-                                  ),
+                                      // decoration: TextDecoration.underline,
+                                      // decorationColor: Colors.black38,
+                                      ),
                                 ),
                               ),
                             ],
@@ -167,6 +169,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             text: L10n.tr().createAnAccount.toUpperCase(),
                             ontap: () {
                               if (formKey.currentState?.validate() != true) return;
+                              SessionData.instance.user = UserModel(
+                                id: 0,
+                                firstName: firstNameController.text,
+                                lastName: lastNameController.text,
+                                email: emailController.text,
+                                token: passwordController.text,
+                              );
                               showDialog(
                                 context: context,
                                 barrierColor: Colors.black26,

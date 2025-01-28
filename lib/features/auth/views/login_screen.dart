@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pure_minds/config/localization/l10n/l10n.dart';
+import 'package:pure_minds/config/session_data.dart';
 import 'package:pure_minds/config/theming/theming.dart';
 import 'package:pure_minds/core/extensions/context.dart';
+import 'package:pure_minds/core/helpers/alerts.dart';
 import 'package:pure_minds/core/resources/assets.dart';
 import 'package:pure_minds/core/services/validators.dart';
 import 'package:pure_minds/features/general_widgets/main_button.dart';
@@ -112,7 +114,14 @@ class _LoginScreenState extends State<LoginScreen> {
                             text: L10n.tr().signIn.toUpperCase(),
                             ontap: () {
                               if (formKey.currentState?.validate() != true) return;
-                              context.myPush(const MainLayout());
+                              final user = SessionData.instance.user;
+                              if (user?.email == emailController.text &&
+                                  user?.token == passwordController.text) {
+                                context.myPush(const MainLayout());
+                              }else{
+                                Alerts.showToast(L10n.tr().thisCredentialIsNotValid);
+                              }
+                              // context.myPush(const MainLayout());
                             },
                           ),
                           VerticalSpacing(20),

@@ -1,6 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:pure_minds/features/general_widgets/main_safe_area.dart';
+import 'package:pure_minds/features/home/home_screen.dart';
 import 'package:pure_minds/features/main_layout/bottom_bar_buble.dart';
 
 class MainLayout extends StatefulWidget {
@@ -23,7 +24,7 @@ class _MainLayoutState extends State<MainLayout> {
   getScreen(int i) {
     switch (i) {
       case 0:
-        return Container(key: const ValueKey(0), color: Colors.red);
+        return const HomeScreen(key: ValueKey(0));
       case 1:
         return Container(key: const ValueKey(1), color: Colors.blue);
       case 2:

@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/foundation.dart';
 
 abstract class Helpers {
@@ -15,7 +13,6 @@ abstract class Helpers {
 
   static String getProperPrice(num price) {
     final isInt = price % 1 == 0;
-    return (isInt ? price.toStringAsFixed(0) : price.toStringAsFixed(2)) +
-        (' EG');
+    return ('\$ ') + (isInt ? price.toStringAsFixed(0) : price.toStringAsFixed(2));
   }
 }

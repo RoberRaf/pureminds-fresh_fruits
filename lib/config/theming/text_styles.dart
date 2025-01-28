@@ -130,6 +130,30 @@ abstract class TStyle {
         fontWeight: bolder,
         color: Co.black,
       );
+  static TextStyle darkGreyRegular(double fontSize) => TextStyle(
+        // fontFamily: "Segoe",
+        fontSize: fontSize,
+        fontWeight: regular,
+        color: Co.darkGrey,
+      );
+  static TextStyle darkGreySemi(double fontSize) => TextStyle(
+        // fontFamily: "Segoe",
+        fontSize: fontSize,
+        fontWeight: semi,
+        color: Co.darkGrey,
+      );
+  static TextStyle darkGreyBold(double fontSize) => TextStyle(
+        // fontFamily: "Segoe",
+        fontSize: fontSize,
+        fontWeight: bold,
+        color: Co.darkGrey,
+      );
+  static TextStyle darkGreyBolder(double fontSize) => TextStyle(
+        // fontFamily: "Segoe",
+        fontSize: fontSize,
+        fontWeight: bolder,
+        color: Co.darkGrey,
+      );
   static TextStyle greyRegular(double fontSize) => TextStyle(
         // fontFamily: "Segoe",
         fontSize: fontSize,
