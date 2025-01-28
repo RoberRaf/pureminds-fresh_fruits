@@ -4,6 +4,8 @@ import 'package:pure_minds/config/localization/l10n/l10n.dart';
 import 'package:pure_minds/config/theming/theming.dart';
 import 'package:pure_minds/core/cubits/settings_cubit/settings_cubit.dart';
 import 'package:pure_minds/core/cubits/settings_cubit/settings_states.dart';
+import 'package:pure_minds/di.dart';
+import 'package:pure_minds/features/cart/cubit/cart_cubit.dart';
 import 'package:pure_minds/features/splash/splash_screen.dart';
 
 class PureMindsApp extends StatelessWidget {
@@ -14,6 +16,7 @@ class PureMindsApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => SettingsCubit(), lazy: false),
+        BlocProvider(create: (context) => di<CartCubit>()),
       ],
       child: Builder(
         builder: (ctx) => BlocBuilder<SettingsCubit, SettingsStates>(
@@ -21,9 +24,7 @@ class PureMindsApp extends StatelessWidget {
             title: "Tabali App",
             theme: MyTheme.mainTheme,
             darkTheme: MyTheme.darkTheme,
-            themeMode: context.read<SettingsCubit>().isLight
-                ? ThemeMode.light
-                : ThemeMode.dark,
+            themeMode: context.read<SettingsCubit>().isLight ? ThemeMode.light : ThemeMode.dark,
             debugShowCheckedModeBanner: false,
             // initialRoute: Routes.splashScreen,
             // home: const SplashScreen(),
@@ -32,8 +33,7 @@ class PureMindsApp extends StatelessWidget {
             localizationsDelegates: L10n.localizationDelegates,
             supportedLocales: L10n.supportedLocales,
             localeResolutionCallback: L10n.setFallbackLocale,
-            locale:
-                BlocProvider.of<SettingsCubit>(ctx, listen: true).appLocale,
+            locale: BlocProvider.of<SettingsCubit>(ctx, listen: true).appLocale,
             home: const SplashScreen(),
           ),
         ),

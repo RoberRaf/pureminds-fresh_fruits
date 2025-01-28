@@ -68,5 +68,7 @@
     "password": "Password",
     "thisCredentialIsNotValid": "This credential is not valid",
     "freshFruitsDelivery": "Fresh Fruits Delivery",
-    "recommendedRecipeToday": "Recomended Recipe Today"
+    "recommendedRecipeToday": "Recomended Recipe Today",
+    "clickBackAgainToExit": "Click back again to exit",
+    "searchHere": "Search here"
 }

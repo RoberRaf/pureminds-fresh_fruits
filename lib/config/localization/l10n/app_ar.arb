@@ -68,5 +68,7 @@
     "password": "كلمه السر",
     "thisCredentialIsNotValid": "هذا الاعتماد غير صالح",
     "freshFruitsDelivery": "توصيل الفواكه الطازجة",
-    "recommendedRecipeToday": "الوصفة الموصى بها اليوم"
+    "recommendedRecipeToday": "الوصفة الموصى بها اليوم",
+    "clickBackAgainToExit": "انقر مرة أخرى للخروج",
+    "searchHere": "ابحث هنا"
 }

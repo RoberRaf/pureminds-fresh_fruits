@@ -17,7 +17,9 @@ class MyTheme {
         fontFamily: 'poppins',
         scaffoldBackgroundColor: Co.greyishWhite,
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Co.white,
+          shadowColor: Colors.black12,
+          elevation: 20,
           surfaceTintColor: Colors.transparent,
           // systemOverlayStyle: SystemUiOverlayStyle(
           //   systemNavigationBarColor: Colors.purple, // Navigation bar

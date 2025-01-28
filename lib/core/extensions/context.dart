@@ -2,21 +2,24 @@ import 'package:flutter/material.dart';
 
 extension NavigationHelper on BuildContext {
   Future<T?> myPush<T>(Widget widget) async {
-    final result = await Navigator.of(this).push<T>(MaterialPageRoute(builder: (context) => widget));
+    final result =
+        await Navigator.of(this).push<T>(MaterialPageRoute(builder: (context) => widget));
     return result;
   }
 
-  Future<T?> myPushNamed<T>(String name) async {
-    final result = await Navigator.of(this).pushNamed<T>(name);
+  Future<T?> myPushNamed<T>(String name, {Map<String, dynamic>? arguments}) async {
+    final result = await Navigator.of(this).pushNamed<T>(name, arguments: arguments);
     return result;
   }
 
   Future<T?> myShowDialog<T>(Widget widget, {bool dissmisable = true}) async {
-    final result = showDialog<T>(barrierDismissible: dissmisable, context: this, builder: (context) => widget);
+    final result =
+        showDialog<T>(barrierDismissible: dissmisable, context: this, builder: (context) => widget);
     return result;
   }
 
-  Future<T?> showMBottomSheet<T>({required Widget child, bool isDismissible = false, Color bgColor = Colors.white}) {
+  Future<T?> showMBottomSheet<T>(
+      {required Widget child, bool isDismissible = false, Color bgColor = Colors.white}) {
     return showModalBottomSheet<T>(
       constraints: BoxConstraints(
         maxHeight: MediaQuery.sizeOf(this).height * 0.85,
@@ -35,17 +38,21 @@ extension NavigationHelper on BuildContext {
   }
 
   Future<T?> myPushReplacment<T>(Widget widget) async {
-    final result = await Navigator.of(this).pushReplacement<T, dynamic>(MaterialPageRoute(builder: (context) => widget));
+    final result = await Navigator.of(this)
+        .pushReplacement<T, dynamic>(MaterialPageRoute(builder: (context) => widget));
     return result;
   }
 
   Future<T?> myPushAndRemoveUntil<T>(Widget widget) async {
-    final result = await Navigator.of(this).pushAndRemoveUntil<T>(MaterialPageRoute(builder: (context) => widget), (route) => false);
+    final result = await Navigator.of(this)
+        .pushAndRemoveUntil<T>(MaterialPageRoute(builder: (context) => widget), (route) => false);
     return result;
   }
 
-  Future<T?> myPushAndRemoveUntilNamed<T>(Widget widget, String routeName) async {
-    final result = Navigator.of(this).pushAndRemoveUntil<T>(MaterialPageRoute(builder: (context) => widget), ModalRoute.withName(routeName));
+  Future<T?> myPushAndRemoveUntilNamed<T>(Widget widget, String routeName,
+      {Map<String, dynamic>? arguments}) async {
+    final result = Navigator.of(this).pushAndRemoveUntil<T>(
+        MaterialPageRoute(builder: (context) => widget), ModalRoute.withName(routeName));
     return result;
   }
 

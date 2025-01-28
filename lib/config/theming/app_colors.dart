@@ -10,6 +10,7 @@ class Co {
   static const red = Color(0XFFFF2E6C);
   static const black = Color(0XFF000000);
   static const grey = Color(0XFFB1B1B1);
+  static const midGrey = Color(0XFF898989);
   static const darkGrey = Color(0XFF384144);
   static const lightGrey = Color(0XFFF2F2F2);
   static const greyishWhite = Color(0XFFFBFBFB);
