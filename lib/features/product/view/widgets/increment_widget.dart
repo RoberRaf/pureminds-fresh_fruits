@@ -16,7 +16,7 @@ class IncrementWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final children = [
       IconButton(
-        onPressed: () => onDecrement,
+        onPressed: () => onDecrement(),
         icon: const Icon(
           Icons.remove,
           color: Co.yellow,
@@ -28,13 +28,9 @@ class IncrementWidget extends StatelessWidget {
         child: AnimatedSwitcher(
           duration: Durations.medium1,
           transitionBuilder: (Widget child, Animation<double> animation) {
-            return FadeTransition(
-              opacity: animation,
-              child: SlideTransition(
-                position: Tween<Offset>(begin: const Offset(0.0, -0.5), end: const Offset(0.0, 0.0))
-                    .animate(animation),
-                child: child,
-              ),
+            return ScaleTransition(
+              scale: animation,
+              child: child,
             );
           },
           child: Text(
@@ -46,7 +42,7 @@ class IncrementWidget extends StatelessWidget {
         ),
       ),
       IconButton(
-          onPressed: () => onIncrement,
+          onPressed: () => onIncrement(),
           icon: const Icon(
             Icons.add,
             color: Co.yellow,

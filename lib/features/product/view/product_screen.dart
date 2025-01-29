@@ -8,6 +8,7 @@ import 'package:pure_minds/core/resources/dummy_data.dart';
 import 'package:pure_minds/core/services/helpers.dart';
 import 'package:pure_minds/features/general_widgets/spacing.dart';
 import 'package:pure_minds/features/product/cubit/product_cubit.dart';
+import 'package:pure_minds/features/product/cubit/product_states.dart';
 import 'package:pure_minds/features/product/view/widgets/increment_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -115,19 +116,34 @@ class _ProductScreenState extends State<ProductScreen> {
                                   cubit.product.name,
                                   style: TStyle.blackBold(20),
                                 ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      Helpers.getProperPrice(cubit.product.price),
-                                      style: TStyle.yellowSemi(22),
-                                    ),
-                                    IncrementWidget(
-                                      onDecrement: () {},
-                                      onIncrement: () {},
-                                      value: 1,
-                                    )
-                                  ],
+                                BlocBuilder<ProductCubit, ProductStates>(
+                                  buildWhen: (previous, current) => current is QuantityUpdateState,
+                                  builder: (context, state) => Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      AnimatedSwitcher(
+                                        duration: Durations.medium1,
+                                        transitionBuilder:
+                                            (Widget child, Animation<double> animation) {
+                                          return FadeTransition(
+                                            opacity: animation,
+                                            child: child,
+                                          );
+                                        },
+                                        child: Text(
+                                          Helpers.getProperPrice(
+                                              cubit.product.price * cubit.quantity),
+                                          key: ValueKey(cubit.quantity),
+                                          style: TStyle.yellowSemi(22),
+                                        ),
+                                      ),
+                                      IncrementWidget(
+                                        onDecrement: () => cubit.updateQuantity(false),
+                                        onIncrement: () => cubit.updateQuantity(true),
+                                        value: cubit.quantity,
+                                      )
+                                    ],
+                                  ),
                                 ),
                                 const HorizontalSpacing(450),
                               ],
