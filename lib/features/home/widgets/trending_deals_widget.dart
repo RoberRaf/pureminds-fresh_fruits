@@ -35,9 +35,9 @@ class TrendingDealsWidget extends StatelessWidget {
           padding: AppConsts.defaultHorPadding,
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 220,
-            childAspectRatio: 1 / 1.5,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
+            childAspectRatio: 1.15/ 1.5,
+            crossAxisSpacing: 18,
+            mainAxisSpacing: 18,
           ),
           itemBuilder: (context, index) {
             final product = DummyData.products[index];

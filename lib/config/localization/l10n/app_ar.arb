@@ -70,5 +70,7 @@
     "freshFruitsDelivery": "توصيل الفواكه الطازجة",
     "recommendedRecipeToday": "الوصفة الموصى بها اليوم",
     "clickBackAgainToExit": "انقر مرة أخرى للخروج",
-    "searchHere": "ابحث هنا"
+    "searchHere": "ابحث هنا",
+    "description": "الوصف",
+    "discussion": "المناقشة"
 }

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pure_minds/config/localization/l10n/l10n.dart';
 import 'package:pure_minds/config/theming/theming.dart';
 import 'package:pure_minds/core/resources/assets.dart';
 import 'package:pure_minds/core/resources/dummy_data.dart';
@@ -9,7 +10,10 @@ import 'package:pure_minds/core/services/helpers.dart';
 import 'package:pure_minds/features/general_widgets/spacing.dart';
 import 'package:pure_minds/features/product/cubit/product_cubit.dart';
 import 'package:pure_minds/features/product/cubit/product_states.dart';
+import 'package:pure_minds/features/product/view/widgets/images_stacked_widget.dart';
 import 'package:pure_minds/features/product/view/widgets/increment_widget.dart';
+import 'package:pure_minds/features/product/view/widgets/product_footer_btns.dart';
+import 'package:pure_minds/features/product/view/widgets/product_tabs_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ProductScreen extends StatefulWidget {
@@ -49,6 +53,7 @@ class _ProductScreenState extends State<ProductScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
     return Stack(
       alignment: Alignment.topCenter,
       children: [
@@ -98,7 +103,7 @@ class _ProductScreenState extends State<ProductScreen> {
                     Expanded(
                       child: DecoratedBox(
                           decoration: const BoxDecoration(
-                              color: Co.white,
+                              color: Co.greyishWhite,
                               borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(30),
                                 topRight: Radius.circular(30),
@@ -121,21 +126,10 @@ class _ProductScreenState extends State<ProductScreen> {
                                   builder: (context, state) => Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
-                                      AnimatedSwitcher(
-                                        duration: Durations.medium1,
-                                        transitionBuilder:
-                                            (Widget child, Animation<double> animation) {
-                                          return FadeTransition(
-                                            opacity: animation,
-                                            child: child,
-                                          );
-                                        },
-                                        child: Text(
-                                          Helpers.getProperPrice(
-                                              cubit.product.price * cubit.quantity),
-                                          key: ValueKey(cubit.quantity),
-                                          style: TStyle.yellowSemi(22),
-                                        ),
+                                      Text(
+                                        Helpers.getProperPrice(cubit.product.price),
+                                        key: ValueKey(cubit.quantity),
+                                        style: TStyle.yellowSemi(22),
                                       ),
                                       IncrementWidget(
                                         onDecrement: () => cubit.updateQuantity(false),
@@ -145,11 +139,33 @@ class _ProductScreenState extends State<ProductScreen> {
                                     ],
                                   ),
                                 ),
-                                const HorizontalSpacing(450),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    const Icon(Icons.star_rounded, color: Co.yellow, size: 40),
+                                    const HorizontalSpacing(8),
+                                    Text(cubit.product.rate.toString(),
+                                        style: TStyle.blackSemi(17)),
+                                    const HorizontalSpacing(12),
+                                    Text("(${cubit.product.reviewCount} ${L10n.tr().reviews})",
+                                        style: TStyle.greySemi(14)),
+                                    const ImagesStackedWidget(
+                                      images: [
+                                        Assets.assetsPngPerson1,
+                                        Assets.assetsPngPerson2,
+                                        Assets.assetsPngPerson3
+                                      ],
+                                    )
+                                  ],
+                                ),
+                                const VerticalSpacing(10),
+                                const ProductTabsWidget(),
                               ],
                             ),
                           )),
                     ),
+                    const ProductFooterBtns(),
                   ],
                 ),
               ),

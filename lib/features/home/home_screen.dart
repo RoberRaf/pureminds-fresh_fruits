@@ -25,7 +25,6 @@ class HomeScreen extends StatelessWidget {
             const HomeSliderWidget(),
             VerticalSpacing(30),
             HomeCategoriesWidget(),
-            VerticalSpacing(30),
             TrendingDealsWidget(),
           ],
         ),

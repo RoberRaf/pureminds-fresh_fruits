@@ -70,5 +70,7 @@
     "freshFruitsDelivery": "Fresh Fruits Delivery",
     "recommendedRecipeToday": "Recomended Recipe Today",
     "clickBackAgainToExit": "Click back again to exit",
-    "searchHere": "Search here"
+    "searchHere": "Search here",
+    "description": "Description",
+    "discuss": "Discussion"
 }
