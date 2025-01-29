@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pure_minds/config/localization/l10n/l10n.dart';
 import 'package:pure_minds/config/theming/theming.dart';
+import 'package:pure_minds/core/extensions/irretable.dart';
 import 'package:pure_minds/core/resources/assets.dart';
 import 'package:pure_minds/core/resources/dummy_data.dart';
 import 'package:pure_minds/core/services/helpers.dart';
@@ -17,15 +18,15 @@ import 'package:pure_minds/features/product/view/widgets/product_tabs_widget.dar
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ProductScreen extends StatefulWidget {
-  const ProductScreen({super.key, required this.catId});
-  final int catId;
+  const ProductScreen({super.key, this.catId});
+  final int? catId;
 
   @override
   State<ProductScreen> createState() => _ProductScreenState();
 }
 
 class _ProductScreenState extends State<ProductScreen> {
-  late final String catTitle;
+  late final String? catTitle;
   final controller = PageController();
 
   Timer? timer;
@@ -33,7 +34,7 @@ class _ProductScreenState extends State<ProductScreen> {
   @override
   void initState() {
     cubit = context.read<ProductCubit>();
-    catTitle = DummyData.categories.firstWhere((e) => e.id == widget.catId).title;
+    catTitle = DummyData.categories.firstWhereOrNull((e) => e.id == widget.catId)?.title;
     timer = Timer.periodic(const Duration(seconds: 5), (timer) {
       if (controller.page == 2) {
         controller.animateTo(duration: Durations.long2, curve: Curves.easeIn, 0);
@@ -53,7 +54,6 @@ class _ProductScreenState extends State<ProductScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
     return Stack(
       alignment: Alignment.topCenter,
       children: [
@@ -113,10 +113,11 @@ class _ProductScreenState extends State<ProductScreen> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  catTitle.toUpperCase(),
-                                  style: TStyle.blackSemi(15),
-                                ),
+                                if (catTitle != null)
+                                  Text(
+                                    catTitle!.toUpperCase(),
+                                    style: TStyle.blackSemi(15),
+                                  ),
                                 Text(
                                   cubit.product.name,
                                   style: TStyle.blackBold(20),

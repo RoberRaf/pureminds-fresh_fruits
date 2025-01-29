@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:pure_minds/core/helpers/snackbars.dart';
-import 'package:pure_minds/features/categories/view/screens/catecory_navigator.dart';
+import 'package:pure_minds/features/categories/view/screens/category_navigator.dart';
 import 'package:pure_minds/features/home/home_screen.dart';
 import 'package:pure_minds/features/main_layout/main_bottom_nav_bar.dart';
 
@@ -24,7 +24,7 @@ class _MainLayoutState extends State<MainLayout> {
       case 0:
         return const HomeScreen(key: ValueKey(0));
       case 1:
-        return const CatecoryNavigator(key: ValueKey(1));
+        return const CategoryNavigator(key: ValueKey(1));
       case 2:
         return Container(key: const ValueKey(2), color: Colors.green);
       case 3:

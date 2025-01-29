@@ -1,5 +1,4 @@
 import 'package:get_it/get_it.dart';
-import 'package:pure_minds/features/cart/cubit/cart_cubit.dart';
 import 'package:pure_minds/features/product/cubit/product_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -13,5 +12,4 @@ Future init() async {
 
   // Cubits
   di.registerCachedFactoryParam<ProductCubit, int, Null>((p1, p2) => ProductCubit(p1));
-  di.registerSingleton<CartCubit>(CartCubit());
 }

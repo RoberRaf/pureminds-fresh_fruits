@@ -4,8 +4,8 @@ import 'package:pure_minds/config/localization/l10n/l10n.dart';
 import 'package:pure_minds/config/theming/theming.dart';
 import 'package:pure_minds/core/cubits/settings_cubit/settings_cubit.dart';
 import 'package:pure_minds/core/cubits/settings_cubit/settings_states.dart';
-import 'package:pure_minds/di.dart';
 import 'package:pure_minds/features/cart/cubit/cart_cubit.dart';
+import 'package:pure_minds/features/favorite/cubit/favorites_cubit.dart';
 import 'package:pure_minds/features/splash/splash_screen.dart';
 
 class PureMindsApp extends StatelessWidget {
@@ -16,7 +16,8 @@ class PureMindsApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => SettingsCubit(), lazy: false),
-        BlocProvider(create: (context) => di<CartCubit>()),
+        BlocProvider(create: (context) => CartCubit()),
+        BlocProvider(create: (context) => FavoritesCubit()),
       ],
       child: Builder(
         builder: (ctx) => BlocBuilder<SettingsCubit, SettingsStates>(

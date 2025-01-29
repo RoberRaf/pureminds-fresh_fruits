@@ -4,11 +4,10 @@ import 'package:pure_minds/config/localization/l10n/l10n.dart';
 import 'package:pure_minds/config/theming/theming.dart';
 import 'package:pure_minds/core/resources/assets.dart';
 import 'package:pure_minds/core/resources/dummy_data.dart';
-import 'package:pure_minds/core/services/helpers.dart';
 import 'package:pure_minds/features/categories/data/category_routes.dart';
 import 'package:pure_minds/features/categories/view/widgets/custom_search_bar.dart';
+import 'package:pure_minds/features/categories/view/widgets/product_grid_card.dart';
 import 'package:pure_minds/features/general_widgets/main_safe_area.dart';
-import 'package:pure_minds/features/product/data/product_model.dart';
 
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({super.key, required this.catId});
@@ -90,7 +89,7 @@ class CategoryScreen extends StatelessWidget {
                                       CategoryRoutes.categoryItem,
                                       arguments: {'id': prod.id, 'catId': catId});
                                 },
-                                child: _ProductGridItem(prod: prod));
+                                child: ProductGridCard(prod: prod));
                           },
                         ),
                       )
@@ -101,54 +100,5 @@ class CategoryScreen extends StatelessWidget {
             ],
           ),
         ));
-  }
-}
-
-class _ProductGridItem extends StatelessWidget {
-  const _ProductGridItem({required this.prod});
-
-  final ProductModel prod;
-
-  @override
-  Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        borderRadius: AppConsts.defaultRadius,
-        image: DecorationImage(image: AssetImage(prod.image), fit: BoxFit.cover),
-      ),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          borderRadius: AppConsts.defaultRadius,
-          gradient: const LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Colors.transparent,
-              Colors.black26,
-            ],
-          ),
-        ),
-        child: Align(
-          alignment: Alignment.bottomLeft,
-          child: Padding(
-            padding: const EdgeInsets.all(14),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  prod.name,
-                  style: TStyle.whiteBold(20),
-                ),
-                Text(
-                  Helpers.getProperPrice(prod.price),
-                  style: TStyle.whiteBold(16),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
   }
 }
