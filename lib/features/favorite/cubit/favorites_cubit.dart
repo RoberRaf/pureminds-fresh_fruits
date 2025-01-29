@@ -8,6 +8,14 @@ class FavoritesCubit extends Cubit<FavoriteStates> {
   final favoritesIDs = <int>{};
   final favorties = <ProductModel>[];
 
+  toggleFavorite(ProductModel product) {
+    if (favoritesIDs.contains(product.id)) {
+      removeFavorite(product.id);
+    } else {
+      addfavorite(product);
+    }
+  }
+
   bool addfavorite(ProductModel product) {
     if (favoritesIDs.add(product.id)) {
       favorties.add(product);
@@ -24,5 +32,11 @@ class FavoritesCubit extends Cubit<FavoriteStates> {
       return true;
     }
     return false;
+  }
+
+  void clearFavorties() {
+    favoritesIDs.clear();
+    favorties.clear();
+    emit(FavoritesUpdatedState());
   }
 }

@@ -34,6 +34,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
           icon: const Icon(CupertinoIcons.search, color: Co.midGrey, size: 24)),
       borderColor: Colors.transparent,
       isFilled: true,
+      onChange: widget.onSubmitted,
       style: TStyle.greySemi(15),
       bgColor: const Color(0xFFF0F0F0),
       borderRadius: 20,

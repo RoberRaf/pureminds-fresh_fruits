@@ -130,6 +130,14 @@ class Assets {
   /// assets/svg/egg.svg
   static const String assetsSvgEgg = "assets/svg/egg.svg";
 
+  /// Assets for assetsSvgEmptyCart
+  /// assets/svg/empty_cart.svg
+  static const String assetsSvgEmptyCart = "assets/svg/empty_cart.svg";
+
+  /// Assets for assetsSvgEmptyFavorites
+  /// assets/svg/empty_favorites.svg
+  static const String assetsSvgEmptyFavorites = "assets/svg/empty_favorites.svg";
+
   /// Assets for assetsSvgFavorites
   /// assets/svg/favorites.svg
   static const String assetsSvgFavorites = "assets/svg/favorites.svg";

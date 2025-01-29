@@ -72,5 +72,22 @@
     "clickBackAgainToExit": "انقر مرة أخرى للخروج",
     "searchHere": "ابحث هنا",
     "description": "الوصف",
-    "discussion": "المناقشة"
+    "discussion": "المناقشة",
+    "favorties": "المفضلة",
+    "settings": "الإعدادات",
+    "changeLanguage": "تغيير اللغة",
+    "locale": "en",
+    "english": "English",
+    "arabic": "العربية",
+    "profile": "الملف الشخصي",
+    "cancle": "إلغاء",
+    "confirm": "تأكيد",
+    "areYouSureYouWantToClearAllItems": "هل أنت متأكد أنك تريد مسح جميع العناصر؟",
+    "warning": "تحذير",
+    "itemAddedToCartSuccesfully": "تمت إضافة العنصر إلى السلة بنجاح",
+    "cart": "السلة",
+    "yourCartIsEmpty": "سلة التسوق الخاصة بك فارغة",
+    "youHaveNoFavoriteItems": "ليس لديك عناصر مفضلة",
+    "areyouSureYouWantToDeleteThisItem": "هل أنت متأكد أنك تريد حذف هذا العنصر؟",
+    "loginSuccessfully": "تم تسجيل الدخول بنجاح"
 }

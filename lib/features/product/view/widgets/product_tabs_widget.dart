@@ -43,7 +43,7 @@ class _ProductTabsWidgetState extends State<ProductTabsWidget> with SingleTicker
         ),
         VerticalSpacing(20),
         SizedBox(
-          height: 150,
+          height: 110,
           child: TabBarView(
             controller: tabController,
             children: List.generate(

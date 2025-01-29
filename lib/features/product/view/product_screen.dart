@@ -109,6 +109,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                 topRight: Radius.circular(30),
                               )),
                           child: SingleChildScrollView(
+                            physics: const ClampingScrollPhysics(),
                             padding: AppConsts.defaultPadding,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,

@@ -117,8 +117,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               final user = SessionData.instance.user;
                               if (user?.email == emailController.text &&
                                   user?.token == passwordController.text) {
+                                Alerts.showToast(L10n.tr().loginSuccessfully, error: false);
                                 context.myPushReplacment(const MainLayout());
-                              }else{
+                              } else {
                                 Alerts.showToast(L10n.tr().thisCredentialIsNotValid);
                               }
                               // context.myPush(const MainLayout());

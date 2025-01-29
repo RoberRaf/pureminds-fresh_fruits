@@ -72,5 +72,22 @@
     "clickBackAgainToExit": "Click back again to exit",
     "searchHere": "Search here",
     "description": "Description",
-    "discuss": "Discussion"
+    "discuss": "Discussion",
+    "favorties": "Favorites",
+    "settings": "Settings",
+    "changeLanguage": "Change Language",
+    "locale": "ar",
+    "english": "English",
+    "arabic": "العربية",
+    "profile": "Profile",
+    "cancle": "Cancle",
+    "confirm": "Confirm",
+    "areYouSureYouWantToClearAllItems": "Are you sure you want to clear all items?",
+    "warning": "Warning",
+    "itemAddedToCartSuccesfully": "Item added to cart succesfully",
+    "cart": "Cart",
+    "yourCartIsEmpty": "Your cart is empty",
+    "youHaveNoFavoriteItems": "You have no favorite items",
+    "areyouSureYouWantToDeleteThisItem": "Are you sure you want to delete this item?",
+    "loginSuccessfully": "Login successfully"
 }

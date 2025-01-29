@@ -7,24 +7,26 @@ class IncrementWidget extends StatelessWidget {
       required this.onIncrement,
       required this.onDecrement,
       required this.value,
+      this.useSecondaryColors = false,
       this.isHorizontal = true});
   final Function() onIncrement;
   final Function() onDecrement;
   final int value;
   final bool isHorizontal;
+  final bool useSecondaryColors;
   @override
   Widget build(BuildContext context) {
     final children = [
       IconButton(
         onPressed: () => onDecrement(),
-        icon: const Icon(
+        icon: Icon(
           Icons.remove,
-          color: Co.yellow,
+          color: useSecondaryColors ? Co.midGrey : Co.yellow,
           size: 30,
         ),
       ),
       ConstrainedBox(
-        constraints: const BoxConstraints(minWidth: 20),
+        constraints: const BoxConstraints(minWidth: 35),
         child: AnimatedSwitcher(
           duration: Durations.medium1,
           transitionBuilder: (Widget child, Animation<double> animation) {
@@ -43,18 +45,24 @@ class IncrementWidget extends StatelessWidget {
       ),
       IconButton(
           onPressed: () => onIncrement(),
-          icon: const Icon(
+          icon: Icon(
             Icons.add,
-            color: Co.yellow,
+            color: useSecondaryColors ? Co.midGrey : Co.yellow,
             size: 30,
           )),
     ];
     return isHorizontal
-        ? Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: children,
+        ? DecoratedBox(
+            decoration: BoxDecoration(
+              color: !useSecondaryColors ? Co.lightGrey : Color(0xFFEFEFEF),
+              borderRadius: AppConsts.defaultRadius,
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: children,
+            ),
           )
         : Column(
             mainAxisSize: MainAxisSize.min,

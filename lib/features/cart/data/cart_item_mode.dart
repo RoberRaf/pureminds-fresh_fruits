@@ -1,9 +1,9 @@
 import 'package:pure_minds/features/product/data/product_model.dart';
 
-final class CartItemMode extends ProductModel {
-  final int quantity;
+final class CartItemModel extends ProductModel {
+  int quantity;
 
-  CartItemMode({
+  CartItemModel({
     required this.quantity,
     required ProductModel prod,
   }) : super(
@@ -15,6 +15,7 @@ final class CartItemMode extends ProductModel {
           rate: prod.rate,
           reviewCount: prod.reviewCount,
           reviews: prod.reviews,
+          catName: prod.catName,
         );
 
   double get totalPrice => price * quantity;

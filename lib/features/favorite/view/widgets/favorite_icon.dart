@@ -5,9 +5,9 @@ import 'package:pure_minds/features/favorite/cubit/favorites_cubit.dart';
 import 'package:pure_minds/features/product/data/product_model.dart';
 
 class FavoriteIcon extends StatefulWidget {
-  const FavoriteIcon({super.key, required this.prod});
+  const FavoriteIcon({super.key, required this.prod, this.isFav});
   final ProductModel prod;
-
+  final bool? isFav;
   @override
   State<FavoriteIcon> createState() => _FavoriteIconState();
 }
@@ -25,6 +25,19 @@ class _FavoriteIconState extends State<FavoriteIcon> with SingleTickerProviderSt
     controller = AnimationController(duration: const Duration(milliseconds: 200), vsync: this);
     animation = Tween<double>(begin: 1, end: 1.25).animate(controller);
     super.initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant FavoriteIcon oldWidget) {
+    if (oldWidget.isFav != widget.isFav) {
+      controller.forward().then((_) {
+        setState(() => isFav = !isFav);
+        controller.reverse();
+        controller.forward();
+        controller.reverse();
+      });
+    }
+    super.didUpdateWidget(oldWidget);
   }
 
   @override

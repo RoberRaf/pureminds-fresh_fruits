@@ -178,6 +178,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               );
                               showDialog(
                                 context: context,
+                                barrierDismissible: false,
                                 barrierColor: Colors.black26,
                                 builder: (context) {
                                   return RegisterSuccessDialog(

@@ -1,6 +1,7 @@
 class ProductModel {
   final int id;
   final String name;
+  final String catName;
   final String description;
   final double price;
   final String image;
@@ -11,6 +12,7 @@ class ProductModel {
   ProductModel({
     required this.id,
     required this.name,
+    required this.catName,
     required this.description,
     required this.price,
     required this.image,

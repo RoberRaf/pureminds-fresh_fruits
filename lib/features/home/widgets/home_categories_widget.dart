@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pure_minds/config/localization/l10n/l10n.dart';
 import 'package:pure_minds/config/theming/theming.dart';
+import 'package:pure_minds/core/extensions/context.dart';
 import 'package:pure_minds/core/resources/dummy_data.dart';
+import 'package:pure_minds/features/categories/data/category_routes.dart';
+import 'package:pure_minds/features/main_layout/main_layout.dart';
 
 class HomeCategoriesWidget extends StatelessWidget {
   const HomeCategoriesWidget({super.key});
@@ -24,7 +27,14 @@ class HomeCategoriesWidget extends StatelessWidget {
                   style: TStyle.blackBold(18),
                 ),
                 IconButton(
-                    onPressed: () {}, icon: const Icon(Icons.arrow_forward_rounded, size: 24)),
+                  onPressed: () {
+                    MainLayout.setIndex(1);
+                  },
+                  icon: const Icon(
+                    Icons.arrow_forward_rounded,
+                    size: 24,
+                  ),
+                ),
               ],
             ),
           ),
@@ -35,7 +45,15 @@ class HomeCategoriesWidget extends StatelessWidget {
               itemCount: DummyData.categories.length,
               itemBuilder: (context, index) {
                 return MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    MainLayout.setIndex(1);
+                    Future.delayed(Durations.extralong1, () {
+                      AppConsts.categoryNavigatorKey.currentContext?.myPushNamed(
+                        CategoryRoutes.category,
+                        arguments: {"catId": DummyData.categories[index].id},
+                      );
+                    });
+                  },
                   shape: RoundedRectangleBorder(
                     borderRadius: AppConsts.defaultRadius,
                   ),

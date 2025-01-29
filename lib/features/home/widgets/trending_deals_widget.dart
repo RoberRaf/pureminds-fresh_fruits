@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pure_minds/config/localization/l10n/l10n.dart';
 import 'package:pure_minds/config/theming/theming.dart';
+import 'package:pure_minds/core/extensions/context.dart';
 import 'package:pure_minds/core/resources/dummy_data.dart';
+import 'package:pure_minds/features/categories/data/category_routes.dart';
 import 'package:pure_minds/features/categories/view/widgets/product_grid_card.dart';
 import 'package:pure_minds/features/general_widgets/main_button.dart';
+import 'package:pure_minds/features/main_layout/main_layout.dart';
 
 class TrendingDealsWidget extends StatelessWidget {
   const TrendingDealsWidget({super.key});
@@ -41,9 +44,13 @@ class TrendingDealsWidget extends StatelessWidget {
             final product = DummyData.products[index];
             return InkWell(
               onTap: () {
-                // AppConsts.mainLayoutNavigatorKey.currentContext?.myPushNamed(
-                //     MainLayoutNestedScreens.singleProduct,
-                //     arguments: {'prodId': product.id});
+                MainLayout.setIndex(1);
+                Future.delayed(Durations.extralong1, () {
+                  AppConsts.categoryNavigatorKey.currentContext?.myPushNamed(
+                    CategoryRoutes.categoryItem,
+                    arguments: {"id": product.id},
+                  );
+                });
               },
               child: ProductGridCard(prod: product),
             );
@@ -54,7 +61,9 @@ class TrendingDealsWidget extends StatelessWidget {
           bgColor: Co.black,
           style: TStyle.whiteBold(16),
           text: L10n.tr().more,
-          ontap: () {},
+          ontap: () {
+            MainLayout.setIndex(1);
+          },
         ),
       ],
     );
