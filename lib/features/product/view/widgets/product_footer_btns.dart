@@ -20,16 +20,16 @@ class ProductFooterBtns extends StatelessWidget {
     return ColoredBox(
       color: Co.white,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(32, 8, 32, 12),
+        padding: const EdgeInsets.fromLTRB(32, 6, 32, 8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             MaterialButton(
-                height: 70,
+                height: 55,
                 onPressed: () => favoriteCubit.toggleFavorite(cubit.product),
                 minWidth: 100,
                 color: Co.green,
-                padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50),
                 ),
@@ -40,7 +40,7 @@ class ProductFooterBtns extends StatelessWidget {
                   ),
                 )),
             MaterialButton(
-              height: 70,
+              height: 55,
               onPressed: () => cubit.addCartItem(),
               minWidth: 200,
               color: Co.yellow,

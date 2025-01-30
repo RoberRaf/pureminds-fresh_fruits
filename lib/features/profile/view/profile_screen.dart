@@ -19,7 +19,11 @@ class ProfileScreen extends StatelessWidget {
     Future.delayed(Durations.short1, () => toMove.value = true);
     return MainSafeArea(
         child: Scaffold(
-      appBar: AppBar(title: Text(L10n.tr().welcomeToFresFruits)),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(L10n.tr().welcomeToFresFruits),
+        automaticallyImplyLeading: false,
+      ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(16, 64, 16, 0),
         child: Column(

@@ -38,13 +38,13 @@ class CartCard extends StatelessWidget {
                   ),
                   child: ConstrainedBox(
                     constraints: BoxConstraints(
-                      minHeight: 45,
+                      minHeight: 38,
                       minWidth: 100,
                     ),
                     child: Center(
                       child: Text(
                         Helpers.getProperPrice(item.price),
-                        style: TStyle.blackSemi(18),
+                        style: TStyle.blackSemi(14),
                       ),
                     ),
                   ),
@@ -52,13 +52,13 @@ class CartCard extends StatelessWidget {
               )
             ],
           ),
-          HorizontalSpacing(24),
+          HorizontalSpacing(12),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(item.catName, style: TStyle.greySemi(14)),
-                Text(item.name, style: TStyle.blackSemi(18)),
+                Text(item.catName, style: TStyle.greySemi(13)),
+                Text(item.name, style: TStyle.blackSemi(17)),
                 Spacer(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -74,7 +74,7 @@ class CartCard extends StatelessWidget {
                       child: Text(
                         Helpers.getProperPrice(item.totalPrice),
                         key: ValueKey(item.totalPrice),
-                        style: TStyle.orangeSemi(18),
+                        style: TStyle.orangeSemi(16),
                       ),
                     ),
                     IncrementWidget(

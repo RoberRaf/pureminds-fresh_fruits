@@ -16,6 +16,7 @@ class CategoriesScreen extends StatelessWidget {
     return MainSafeArea(
         child: Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         automaticallyImplyLeading: false,
         title: Text(
           L10n.tr().categories,
@@ -26,7 +27,7 @@ class CategoriesScreen extends StatelessWidget {
         padding: AppConsts.defaultPadding,
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: 220,
-          childAspectRatio: 1,
+          childAspectRatio: 0.82,
           crossAxisSpacing: 15,
           mainAxisSpacing: 15,
         ),
@@ -54,16 +55,16 @@ class CategoriesScreen extends StatelessWidget {
                 const VerticalSpacing(15),
                 SvgPicture.asset(
                   cat.image,
-                  height: 75,
-                  width: 75,
+                  height: 65,
+                  width: 65,
                   fit: BoxFit.contain,
                 ),
                 const VerticalSpacing(15),
                 Text(
                   cat.title,
-                  style: TStyle.orangeBolder(20),
+                  style: TStyle.orangeBolder(18),
                 ),
-                Text("${cat.itemsCount} ${L10n.tr().items}", style: TStyle.orangeBold(14)),
+                Text("${cat.itemsCount} ${L10n.tr().items}", style: TStyle.orangeBold(13)),
               ],
             ),
           );

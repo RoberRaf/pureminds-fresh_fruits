@@ -24,6 +24,7 @@ class FavortiesScreen extends StatelessWidget {
     return MainSafeArea(
         child: Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(L10n.tr().favorties),
         foregroundColor: Co.black,
         centerTitle: true,

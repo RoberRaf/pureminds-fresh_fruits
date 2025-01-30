@@ -41,7 +41,7 @@ class ProductGridCard extends StatelessWidget {
                   children: [
                     Text(
                       prod.name,
-                      style: TStyle.whiteBold(20),
+                      style: TStyle.whiteBold(18),
                     ),
                     Text(
                       Helpers.getProperPrice(prod.price),

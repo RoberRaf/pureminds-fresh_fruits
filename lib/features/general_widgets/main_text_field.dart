@@ -130,7 +130,7 @@ class _MainTextFieldState extends State<MainTextField> {
                     hintStyle: widget.style ?? TStyle.greyRegular(12),
                     labelText: widget.label,
                     labelStyle: TStyle.greySemi(15),
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 28, vertical: 20),
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 15),
                     prefixIcon: widget.prefix == null
                         ? null
                         : widget.prefixOnTap == null

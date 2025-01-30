@@ -60,19 +60,24 @@ class _LoginScreenState extends State<LoginScreen> {
           Align(
             alignment: Alignment.bottomCenter,
             child: SafeArea(
-              child: ClipRRect(
-                borderRadius: AppConsts.defaultRadius,
-                child: ColoredBox(
+              child: DecoratedBox(
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                  ),
                   color: Co.white,
-                  child: Padding(
-                    padding: AppConsts.defaultPadding,
-                    child: Form(
-                      key: formKey,
+                ),
+                child: Padding(
+                  padding: AppConsts.defaultPadding,
+                  child: Form(
+                    key: formKey,
+                    child: SingleChildScrollView(
                       child: Column(
                         spacing: 10,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          VerticalSpacing(0),
+                          const VerticalSpacing(0),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -90,13 +95,13 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ],
                           ),
-                          VerticalSpacing(30),
+                          const VerticalSpacing(30),
                           MainTextField(
                             controller: emailController,
                             hintText: L10n.tr().email,
                             validator: Validators.emailValidator,
                           ),
-                          VerticalSpacing(10),
+                          const VerticalSpacing(10),
                           MainTextField(
                             controller: passwordController,
                             hintText: L10n.tr().password,
@@ -109,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 L10n.tr().forgotPassword,
                                 style: TStyle.orangeRegular(15),
                               )),
-                          VerticalSpacing(10),
+                          const VerticalSpacing(10),
                           MainButton(
                             text: L10n.tr().signIn.toUpperCase(),
                             ontap: () {
@@ -125,7 +130,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               // context.myPush(const MainLayout());
                             },
                           ),
-                          VerticalSpacing(20),
+                          const VerticalSpacing(20),
                         ],
                       ),
                     ),

@@ -35,7 +35,7 @@ class CartCubit extends Cubit<CartStates> {
       if (isAdding) {
         cartItems[index].quantity++;
       } else {
-        cartItems[index].quantity--;
+        if (cartItems[index].quantity > 1) cartItems[index].quantity--;
       }
       emit(CartItemsUpdatedState());
     }

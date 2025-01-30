@@ -15,6 +15,6 @@ abstract class AppConsts {
         )
       ];
 
-  static final defaultPadding = const EdgeInsets.symmetric(horizontal: 28, vertical: 28);
-  static final defaultHorPadding = const EdgeInsets.symmetric(horizontal: 28);
+  static get defaultPadding => const EdgeInsets.symmetric(horizontal: 22, vertical: 16);
+  static get defaultHorPadding => const EdgeInsets.symmetric(horizontal: 28);
 }

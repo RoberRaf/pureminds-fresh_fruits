@@ -15,7 +15,7 @@ class PureMindsApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => SettingsCubit(), lazy: false),
+        BlocProvider(create: (context) => SettingsCubit()),
         BlocProvider(create: (context) => CartCubit()),
         BlocProvider(create: (context) => FavoritesCubit()),
       ],

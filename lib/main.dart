@@ -16,7 +16,7 @@ void main() async {
       SystemUiOverlay.top,
     ],
   );
-  init();
+  await init();
   Bloc.observer = MyBlocObserver();
   await Future.delayed(Durations.short1);
   runApp(const PureMindsApp());

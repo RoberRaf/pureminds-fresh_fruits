@@ -21,24 +21,26 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final cubit = BlocProvider.of<CartCubit>(context);
     return MainSafeArea(
-        child: Scaffold(
+        child: BlocBuilder<CartCubit, CartStates>(
+        builder: (context, state) =>  Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(L10n.tr().itemDetails),
         titleTextStyle: TStyle.blackSemi(22),
         foregroundColor: Co.black,
         centerTitle: false,
         actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: TextButton(
-              onPressed: () async {},
-              child: Text(L10n.tr().placeOrder, style: TStyle.orangeSemi(18)),
+          if (cubit.cartItems.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: TextButton(
+                onPressed: () async {},
+                child: Text(L10n.tr().placeOrder, style: TStyle.orangeSemi(18)),
+              ),
             ),
-          ),
         ],
       ),
-      body: BlocBuilder<CartCubit, CartStates>(
-        builder: (context, state) => cubit.cartItems.isEmpty
+      body: cubit.cartItems.isEmpty
             ? NoDataWidget(msg: L10n.tr().yourCartIsEmpty, svgImage: Assets.assetsSvgEmptyCart)
             : ListView.separated(
                 shrinkWrap: true,

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:pure_minds/features/product/cubit/product_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -12,4 +13,5 @@ Future init() async {
 
   // Cubits
   di.registerCachedFactoryParam<ProductCubit, int, Null>((p1, p2) => ProductCubit(p1));
+  await Future.delayed(Durations.short1);
 }

@@ -108,6 +108,7 @@ flutter:
     - assets/
     - assets/svg/
     - assets/png/
+    - shorebird.yaml
 
   #   - images/a_dot_ham.jpeg
 

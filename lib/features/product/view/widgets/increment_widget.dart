@@ -19,10 +19,11 @@ class IncrementWidget extends StatelessWidget {
     final children = [
       IconButton(
         onPressed: () => onDecrement(),
+        padding: EdgeInsets.all(4),
         icon: Icon(
           Icons.remove,
           color: useSecondaryColors ? Co.midGrey : Co.yellow,
-          size: 30,
+          size: 26,
         ),
       ),
       ConstrainedBox(
@@ -38,17 +39,18 @@ class IncrementWidget extends StatelessWidget {
           child: Text(
             value.toString(),
             textAlign: TextAlign.center,
-            style: TStyle.blackRegular(18),
+            style: TStyle.blackRegular(17),
             key: ValueKey(value),
           ),
         ),
       ),
       IconButton(
           onPressed: () => onIncrement(),
+          padding: EdgeInsets.all(4),
           icon: Icon(
             Icons.add,
             color: useSecondaryColors ? Co.midGrey : Co.yellow,
-            size: 30,
+            size: 26,
           )),
     ];
     return isHorizontal

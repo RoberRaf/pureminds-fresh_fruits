@@ -16,11 +16,11 @@ class ImagesStackedWidget extends StatelessWidget {
             Positioned(
               left: i * 40,
               child: CircleAvatar(
-                radius: 34,
+                radius: 29,
                 backgroundColor: Co.white,
                 child: CircleAvatar(
                   backgroundImage: AssetImage(images[i]),
-                  radius: 30,
+                  radius: 26,
                 ),
               ),
             ),

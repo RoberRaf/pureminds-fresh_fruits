@@ -20,7 +20,6 @@ class OnBoardingContent extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Column(
-              spacing: 16,
               children: [
                 if (index == 0)
                   Text(

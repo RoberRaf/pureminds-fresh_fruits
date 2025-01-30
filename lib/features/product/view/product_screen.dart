@@ -117,11 +117,11 @@ class _ProductScreenState extends State<ProductScreen> {
                                 if (catTitle != null)
                                   Text(
                                     catTitle!.toUpperCase(),
-                                    style: TStyle.blackSemi(15),
+                                    style: TStyle.blackSemi(13),
                                   ),
                                 Text(
                                   cubit.product.name,
-                                  style: TStyle.blackBold(20),
+                                  style: TStyle.blackBold(18),
                                 ),
                                 BlocBuilder<ProductCubit, ProductStates>(
                                   buildWhen: (previous, current) => current is QuantityUpdateState,
@@ -131,7 +131,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                       Text(
                                         Helpers.getProperPrice(cubit.product.price),
                                         key: ValueKey(cubit.quantity),
-                                        style: TStyle.yellowSemi(22),
+                                        style: TStyle.yellowSemi(18),
                                       ),
                                       IncrementWidget(
                                         onDecrement: () => cubit.updateQuantity(false),
@@ -145,13 +145,20 @@ class _ProductScreenState extends State<ProductScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    const Icon(Icons.star_rounded, color: Co.yellow, size: 40),
-                                    const HorizontalSpacing(8),
-                                    Text(cubit.product.rate.toString(),
-                                        style: TStyle.blackSemi(17)),
-                                    const HorizontalSpacing(12),
-                                    Text("(${cubit.product.reviewCount} ${L10n.tr().reviews})",
-                                        style: TStyle.greySemi(14)),
+                                    Expanded(
+                                      child: Row(
+                                        spacing: 6,
+                                        children: [
+                                          const Icon(Icons.star_rounded,
+                                              color: Co.yellow, size: 32),
+                                          Text(cubit.product.rate.toString(),
+                                              style: TStyle.blackSemi(15)),
+                                          Text(
+                                              "(${cubit.product.reviewCount} ${L10n.tr().reviews})",
+                                              style: TStyle.greySemi(14)),
+                                        ],
+                                      ),
+                                    ),
                                     const ImagesStackedWidget(
                                       images: [
                                         Assets.assetsPngPerson1,
@@ -161,7 +168,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                     )
                                   ],
                                 ),
-                                const VerticalSpacing(10),
+                                const VerticalSpacing(6),
                                 const ProductTabsWidget(),
                               ],
                             ),

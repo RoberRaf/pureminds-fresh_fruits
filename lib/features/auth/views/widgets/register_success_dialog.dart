@@ -59,57 +59,60 @@ class _RegisterSuccessDialogState extends State<RegisterSuccessDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return BackdropFilter(
-      filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-      child: Dialog(
-        insetPadding: const EdgeInsets.symmetric(horizontal: 38),
-        shape: RoundedRectangleBorder(
-          borderRadius: AppConsts.defaultRadius,
-        ),
-        backgroundColor: Co.greyishWhite,
-        child: Padding(
-          padding: AppConsts.defaultPadding,
-          child: Column(
-            spacing: 10,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const VerticalSpacing(10),
-              Text(
-                L10n.tr().congradulations,
-                style: TStyle.orangeBold(26),
-              ),
-              Text(
-                widget.name,
-                style: TStyle.purpleSemi(16),
-              ),
-              ConfettiWidget(
-                confettiController: _controllerCenter,
-                blastDirectionality: BlastDirectionality.explosive,
-                shouldLoop: true,
-                maxBlastForce: 10,
-                minBlastForce: 5,
-                numberOfParticles: 40,
-                emissionFrequency: 0.03,
-                gravity: 0.01,
-                minimumSize: const Size(10, 10),
-                colors: const [
-                  Colors.green,
-                  Colors.blue,
-                  Colors.pink,
-                  Colors.orange,
-                  Colors.purple
-                ],
-                createParticlePath: drawStar,
-              ),
-              const VerticalSpacing(50),
-              MainButton(
-                  margin: AppConsts.defaultPadding,
-                  text: L10n.tr().signIn.toUpperCase(),
-                  ontap: () {
-                    context.myPop();
-                    context.myPushReplacment(const LoginScreen());
-                  }),
-            ],
+    return PopScope(
+      canPop: false,
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+        child: Dialog(
+          insetPadding: const EdgeInsets.symmetric(horizontal: 38),
+          shape: RoundedRectangleBorder(
+            borderRadius: AppConsts.defaultRadius,
+          ),
+          backgroundColor: Co.greyishWhite,
+          child: Padding(
+            padding: AppConsts.defaultPadding,
+            child: Column(
+              spacing: 10,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const VerticalSpacing(10),
+                Text(
+                  L10n.tr().congradulations,
+                  style: TStyle.orangeBold(26),
+                ),
+                Text(
+                  widget.name,
+                  style: TStyle.purpleSemi(16),
+                ),
+                ConfettiWidget(
+                  confettiController: _controllerCenter,
+                  blastDirectionality: BlastDirectionality.explosive,
+                  shouldLoop: true,
+                  maxBlastForce: 10,
+                  minBlastForce: 5,
+                  numberOfParticles: 40,
+                  emissionFrequency: 0.03,
+                  gravity: 0.01,
+                  minimumSize: const Size(10, 10),
+                  colors: const [
+                    Colors.green,
+                    Colors.blue,
+                    Colors.pink,
+                    Colors.orange,
+                    Colors.purple
+                  ],
+                  createParticlePath: drawStar,
+                ),
+                const VerticalSpacing(50),
+                MainButton(
+                    margin: AppConsts.defaultPadding,
+                    text: L10n.tr().signIn.toUpperCase(),
+                    ontap: () {
+                      context.myPop();
+                      context.myPushReplacment(const LoginScreen());
+                    }),
+              ],
+            ),
           ),
         ),
       ),

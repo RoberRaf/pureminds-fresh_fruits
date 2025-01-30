@@ -52,7 +52,7 @@ class _OnboarddingScreenState extends State<OnboarddingScreen> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const VerticalSpacing(50),
+            const VerticalSpacing(25),
             SizedBox(
               height: 360,
               width: MediaQuery.sizeOf(context).width,
@@ -89,7 +89,6 @@ class _OnboarddingScreenState extends State<OnboarddingScreen> {
                               item: DummyData.onBoardings[value],
                             ),
                           ),
-                          const VerticalSpacing(24),
                           SmoothPageIndicator(
                             controller: controller,
                             count: DummyData.onBoardings.length,
@@ -108,7 +107,7 @@ class _OnboarddingScreenState extends State<OnboarddingScreen> {
                               ),
                             ),
                           ),
-                          const VerticalSpacing(40),
+                          VerticalSpacing(10),
                           ValueListenableBuilder(
                               valueListenable: currentIndex,
                               builder: (context, value, child) {
@@ -128,7 +127,7 @@ class _OnboarddingScreenState extends State<OnboarddingScreen> {
                                         : child!);
                               },
                               child: Column(
-                                spacing: 16,
+                                spacing: 12,
                                 children: [
                                   MainButton(
                                     text: L10n.tr().createAnAccount.toUpperCase(),
@@ -146,7 +145,6 @@ class _OnboarddingScreenState extends State<OnboarddingScreen> {
                                   )
                                 ],
                               )),
-                          const VerticalSpacing(10),
                         ],
                       );
                     }),
