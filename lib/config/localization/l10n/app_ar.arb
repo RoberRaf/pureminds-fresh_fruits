@@ -1,5 +1,5 @@
 {
-    "thisFieldIsRequired": "هذا الحقل مطلوب",
+    "thisFieldIsRequired": "الحقل مطلوب",
     "passwordLength": "يجب أن تكون كلمة المرور مكونة من 6 أحرف على الأقل",
     "invalidPhoneNumber": "رقم الهاتف غير صحيح",
     "invalidEmail": "البريد الإلكتروني غير صحيح",

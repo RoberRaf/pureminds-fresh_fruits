@@ -25,7 +25,11 @@ class TrendingDealsWidget extends StatelessWidget {
                 L10n.tr().trendingDeals,
                 style: TStyle.blackBold(18),
               ),
-              IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_forward_rounded, size: 24)),
+              IconButton(
+                  onPressed: () {
+                    MainLayout.setIndex(1);
+                  },
+                  icon: const Icon(Icons.arrow_forward_rounded, size: 24)),
             ],
           ),
         ),

@@ -1,5 +1,5 @@
 {
-    "thisFieldIsRequired": "This field is required",
+    "thisFieldIsRequired": "Required!",
     "passwordLength": "Password must be at least 6 characters",
     "invalidPhoneNumber": "Invalid phone number",
     "invalidEmail": "Invalid email",
@@ -72,7 +72,7 @@
     "clickBackAgainToExit": "Click back again to exit",
     "searchHere": "Search here",
     "description": "Description",
-    "discuss": "Discussion",
+    "discussion": "Discussion",
     "favorties": "Favorites",
     "settings": "Settings",
     "changeLanguage": "Change Language",

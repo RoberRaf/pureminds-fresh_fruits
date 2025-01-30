@@ -14,6 +14,10 @@ enum ThemeCo {
 
 class MyTheme {
   static ThemeData get mainTheme => ThemeData(
+        pageTransitionsTheme: const PageTransitionsTheme(builders: {
+          TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
+          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+        }),
         fontFamily: 'poppins',
         scaffoldBackgroundColor: Co.greyishWhite,
         appBarTheme: const AppBarTheme(
@@ -52,20 +56,17 @@ class MyTheme {
         ),
         dropdownMenuTheme: DropdownMenuThemeData(
             menuStyle: MenuStyle(
-                shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8))),
+                shape: WidgetStatePropertyAll(
+                    RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
                 backgroundColor: const WidgetStatePropertyAll(Co.white))),
         dialogTheme: DialogTheme(
             insetPadding: const EdgeInsets.symmetric(horizontal: 15),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0))),
-        radioTheme:
-            const RadioThemeData(fillColor: WidgetStatePropertyAll(Co.orange)),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0))),
+        radioTheme: const RadioThemeData(fillColor: WidgetStatePropertyAll(Co.orange)),
       );
   static ThemeData get darkTheme => mainTheme.copyWith(
       scaffoldBackgroundColor: MyTh.dark300,
-      bottomNavigationBarTheme:
-          const BottomNavigationBarThemeData(backgroundColor: MyTh.dark200),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(backgroundColor: MyTh.dark200),
       highlightColor: Colors.white,
       disabledColor: Co.lightGrey,
       canvasColor: Co.black,

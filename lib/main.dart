@@ -7,6 +7,7 @@ import 'package:pure_minds/pure_minds_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
   SystemChrome.setEnabledSystemUIMode(
     SystemUiMode.edgeToEdge,
